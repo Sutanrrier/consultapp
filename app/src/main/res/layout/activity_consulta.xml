@@ -13,7 +13,8 @@
         android:text="Consulta"
         android:textAlignment="center"
         android:textSize="30sp"
-        android:layout_marginTop="30sp"/>
+        android:layout_marginTop="30sp"
+        android:gravity="center_horizontal" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -34,7 +35,6 @@
             android:layout_height="100sp"
             android:text="Consulta Marcada"
             android:layout_marginLeft="5sp"/>
-
     </LinearLayout>
 
         <Button
@@ -43,6 +43,5 @@
             android:layout_height="wrap_content"
             android:text="Voltar"
             android:layout_marginTop="70sp"/>
-
 
 </LinearLayout>
