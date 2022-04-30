@@ -5,6 +5,7 @@
     <string name="btn_entrar">Entrar na conta</string>
     <string name="btn_cadastrar">Sem conta? Cadastre-se aqui!</string>
     <string name="txt_bemvindo">Bem Vindo</string>
+    <string name="txt_cadastro">Cadastre-se aqui!</string>
     <string name="title_activity_consulta">Consulta</string>
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>

@@ -31,7 +31,6 @@ public class TelaFormulario extends AppCompatActivity  implements View.OnClickLi
         setContentView(R.layout.activity_tela_formulario);
 
         btnSalvar = findViewById(R.id.btnSalvar);
-        btnVoltar = findViewById(R.id.btnVoltar);
         edtNome = findViewById(R.id.edtNome);
         edtEmail = findViewById(R.id.edtEmail);
         edtTelefone = findViewById(R.id.edtTelefone);
@@ -52,8 +51,6 @@ public class TelaFormulario extends AppCompatActivity  implements View.OnClickLi
                 String endereco = edtEndereco.getText().toString();
                 String usuario = edtUsuario.getText().toString();
                 String senha = edtSenha.getText().toString();
-
-
 
                 if (nome.isEmpty()) {
                     edtNome.setError("Obrigatório");
@@ -79,24 +76,13 @@ public class TelaFormulario extends AppCompatActivity  implements View.OnClickLi
                     edtSenha.setError("Obrigatório");
                     return;
                 }
+
                 Toast.makeText(TelaFormulario.this, "Cadastro feito", Toast.LENGTH_SHORT).show();
                 DatabaseHelper helperclass = new DatabaseHelper(nome, email, telefone, endereco, usuario, senha);
                 reference.child(usuario).setValue(helperclass);
 
-                btnVoltar.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-
-                        onBackPressed(v);
-                    }
-                });
             }
         });
-    }
-
-    public void onBackPressed(View v) {
-        super.onBackPressed();
-        finish();
     }
 
     @Override
@@ -104,5 +90,3 @@ public class TelaFormulario extends AppCompatActivity  implements View.OnClickLi
 
     }
 }
-
-
