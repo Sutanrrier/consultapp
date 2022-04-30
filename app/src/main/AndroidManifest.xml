@@ -9,15 +9,21 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppFirebase">
-        <activity
-            android:name="com.example.apppreconsulta.MarcarConsulta"
+
+        <activity android:name="com.example.apppreconsulta.MarcarConsulta"
             android:exported="true" />
-        <activity
-            android:name="com.example.apppreconsulta.Consulta"
+
+        <activity android:name="com.example.apppreconsulta.Consulta"
             android:exported="true" />
-        <activity android:name="com.example.apppreconsulta.TelaFormulario" />
+
+        <activity android:name="com.example.apppreconsulta.TelaFormulario"
+            android:parentActivityName="com.example.apppreconsulta.MainActivity"/>
+
         <activity android:name="com.example.apppreconsulta.TelaEntrar" />
-        <activity android:name="com.example.apppreconsulta.MainActivity">
+
+        <activity android:name="com.example.apppreconsulta.MainActivity"
+            android:launchMode="singleTop">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

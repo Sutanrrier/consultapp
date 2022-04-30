@@ -18,13 +18,27 @@
         <entry key="..\:/Users/Pablo/Documents/Workspaces/ws-androidstudio/Pre-consulta/app/src/main/res/layout/activity_tela_formulario.xml" value="0.33" />
         <entry key="..\:/Users/Pablo/Documents/Workspaces/ws-androidstudio/consultapp/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1595" />
         <entry key="..\:/Users/Pablo/Documents/Workspaces/ws-androidstudio/consultapp/app/src/main/res/drawable/custom_cpf_icon.xml" value="0.1605" />
+        <entry key="..\:/Users/Pablo/Documents/Workspaces/ws-androidstudio/consultapp/app/src/main/res/drawable/custom_email_icon.xml" value="0.1595" />
+        <entry key="..\:/Users/Pablo/Documents/Workspaces/ws-androidstudio/consultapp/app/src/main/res/drawable/custom_endereco_icon.xml" value="0.1595" />
         <entry key="..\:/Users/Pablo/Documents/Workspaces/ws-androidstudio/consultapp/app/src/main/res/drawable/custom_input.xml" value="0.1595" />
+        <entry key="..\:/Users/Pablo/Documents/Workspaces/ws-androidstudio/consultapp/app/src/main/res/drawable/custom_nome_icon.xml" value="0.1595" />
         <entry key="..\:/Users/Pablo/Documents/Workspaces/ws-androidstudio/consultapp/app/src/main/res/drawable/custom_password_icon.xml" value="0.1595" />
+        <entry key="..\:/Users/Pablo/Documents/Workspaces/ws-androidstudio/consultapp/app/src/main/res/drawable/custom_telefone_icon.xml" value="0.1595" />
         <entry key="..\:/Users/Pablo/Documents/Workspaces/ws-androidstudio/consultapp/app/src/main/res/drawable/ic_cpf.xml" value="0.1595" />
         <entry key="..\:/Users/Pablo/Documents/Workspaces/ws-androidstudio/consultapp/app/src/main/res/drawable/ic_cpf_focused.xml" value="0.1595" />
+        <entry key="..\:/Users/Pablo/Documents/Workspaces/ws-androidstudio/consultapp/app/src/main/res/drawable/ic_email.xml" value="0.1595" />
+        <entry key="..\:/Users/Pablo/Documents/Workspaces/ws-androidstudio/consultapp/app/src/main/res/drawable/ic_email_focused.xml" value="0.1595" />
+        <entry key="..\:/Users/Pablo/Documents/Workspaces/ws-androidstudio/consultapp/app/src/main/res/drawable/ic_endereco.xml" value="0.1595" />
+        <entry key="..\:/Users/Pablo/Documents/Workspaces/ws-androidstudio/consultapp/app/src/main/res/drawable/ic_endereco_focused.xml" value="0.1595" />
         <entry key="..\:/Users/Pablo/Documents/Workspaces/ws-androidstudio/consultapp/app/src/main/res/drawable/ic_heath_logo.xml" value="0.1595" />
         <entry key="..\:/Users/Pablo/Documents/Workspaces/ws-androidstudio/consultapp/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1595" />
+        <entry key="..\:/Users/Pablo/Documents/Workspaces/ws-androidstudio/consultapp/app/src/main/res/drawable/ic_logocadastro.xml" value="0.1595" />
+        <entry key="..\:/Users/Pablo/Documents/Workspaces/ws-androidstudio/consultapp/app/src/main/res/drawable/ic_nome.xml" value="0.1595" />
+        <entry key="..\:/Users/Pablo/Documents/Workspaces/ws-androidstudio/consultapp/app/src/main/res/drawable/ic_nome_focused.xml" value="0.1595" />
+        <entry key="..\:/Users/Pablo/Documents/Workspaces/ws-androidstudio/consultapp/app/src/main/res/drawable/ic_telefone.xml" value="0.1595" />
+        <entry key="..\:/Users/Pablo/Documents/Workspaces/ws-androidstudio/consultapp/app/src/main/res/drawable/ic_telefone_focused.xml" value="0.1595" />
         <entry key="..\:/Users/Pablo/Documents/Workspaces/ws-androidstudio/consultapp/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/Users/Pablo/Documents/Workspaces/ws-androidstudio/consultapp/app/src/main/res/layout/activity_tela_formulario.xml" value="0.27291666666666664" />
         <entry key="..\:/Users/mfeli/AndroidStudioProjects/AppFirebase/app/src/main/res/layout/activity_consulta.xml" value="0.23777173913043478" />
         <entry key="..\:/Users/mfeli/AndroidStudioProjects/AppFirebase/app/src/main/res/layout/activity_main.xml" value="0.12158054711246201" />
         <entry key="..\:/Users/mfeli/AndroidStudioProjects/AppFirebase/app/src/main/res/layout/activity_marcar_consulta.xml" value="0.23097826086956522" />
