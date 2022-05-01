@@ -15,7 +15,6 @@ public class TelaEntrar extends AppCompatActivity {
     //TextView informacoesTelefone;
     //TextView informacoesEndereco;
     Button consulta;
-    Button sair;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,7 +25,6 @@ public class TelaEntrar extends AppCompatActivity {
         //informacoesEmail = findViewById(R.id.txtEmailentrar);
         //informacoesTelefone = findViewById(R.id.txtTelefoneentrar);
         //informacoesEndereco = findViewById(R.id.txtEnderecoentrar);
-        sair = findViewById(R.id.btnSair);
         consulta = findViewById(R.id.btnConsulta);
 
         Intent intent = getIntent();
@@ -41,13 +39,6 @@ public class TelaEntrar extends AppCompatActivity {
         //informacoesTelefone.setText(user_telefone);
         //informacoesEndereco.setText(user_endereco);
 
-        sair.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-                System.exit(0);
-            }
-        });
         consulta.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
