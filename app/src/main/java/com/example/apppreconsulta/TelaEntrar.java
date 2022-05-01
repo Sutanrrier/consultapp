@@ -34,7 +34,7 @@ public class TelaEntrar extends AppCompatActivity {
         //String user_endereco = intent.getStringExtra("endereco");
 
 
-        informacoesNome.setText(user_nome);
+        informacoesNome.setText(user_nome.split(" ")[0]);
         //informacoesEmail.setText(user_email);
         //informacoesTelefone.setText(user_telefone);
         //informacoesEndereco.setText(user_endereco);
