@@ -7,81 +7,140 @@
     tools:context=".TelaEntrar"
     android:orientation="vertical">
 
-    <TextView
+    <ImageView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Bem vindo(a)"
-        android:textSize="30sp" />
+        android:layout_height="200dp"
+        android:src="@drawable/ic_heath_logo"
+        android:layout_marginLeft="32dp"
+        android:layout_marginRight="32dp"
+        android:layout_marginTop="18dp"
+        android:layout_marginBottom="18dp"
+        android:contentDescription="Logo" />
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/txtNomeentrar"
-        android:textSize="28sp"
-        android:layout_marginBottom="40sp"/>
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Ações:"
-        android:textSize="20sp"/>
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent" android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="10sp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="8dp"
+            android:layout_marginBottom="12dp">
 
-        <Button
-        android:id="@+id/btnConsulta"
-        android:layout_width="120sp"
-        android:layout_height="100sp"
-        android:text="Consulta"
-        android:layout_marginLeft="5sp" />
-        <Button
-            android:layout_width="120sp"
-            android:layout_height="100sp"
-            android:text="Exames"
-            android:layout_marginLeft="8sp" />
-        <Button
-            android:layout_width="120sp"
-            android:layout_height="100sp"
-            android:text="Remedios"
-            android:layout_marginLeft="8sp"
-            android:layout_marginRight="10sp"/>
+            <TextView
+                android:layout_width="0.0dip"
+                android:layout_height="fill_parent"
+                android:layout_weight="1.0"
+                android:layout_marginLeft="8dp"
+                android:text="Bem vindo(a)"
+                android:textSize="32dp"/>
 
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="5sp">
+            <TextView
+                android:layout_width="0.0dip"
+                android:layout_height="fill_parent"
+                android:layout_weight="1.0"
+                android:layout_marginLeft="8dp"
+                android:id="@+id/txtNomeentrar"
+                android:textSize="32dp"/>
 
-        <Button
-            android:layout_width="120sp"
-            android:layout_height="100sp"
-            android:text="QRCode"
-            android:layout_marginLeft="5sp" />
-        <Button
-            android:layout_width="120sp"
-            android:layout_height="100sp"
-            android:text="Doação"
-            android:layout_marginLeft="8sp" />
-        <Button
-            android:layout_width="120sp"
-            android:layout_height="100sp"
-            android:text="Avaliação"
-            android:layout_marginLeft="8sp"
-            android:layout_marginRight="10sp"/>
+        </LinearLayout>
+    </RelativeLayout>
 
-    </LinearLayout>
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent" android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="8dp">
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Sair"
-        android:id="@+id/btnSair"
-        android:layout_marginTop="20sp"/>
+            <Button
+                android:id="@+id/btnConsulta"
+                android:text="Consulta"
+                android:layout_width="0.0dip"
+                android:layout_height="fill_parent"
+                android:layout_weight="1.0"
+                android:layout_marginLeft="3dp"
+                android:padding="24dp"
+                android:drawableLeft="@drawable/ic_consulta"/>
 
+            <Button
+                android:id="@+id/btnExames"
+                android:text="Exames"
+                android:layout_width="0.0dip"
+                android:layout_height="fill_parent"
+                android:layout_weight="1.0"
+                android:layout_marginLeft="9dp"
+                android:padding="24dp"
+                android:drawableLeft="@drawable/ic_exames"/>
+        </LinearLayout>
+    </RelativeLayout>
 
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent" android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="8dp">
 
+            <Button
+                android:id="@+id/btnRemedios"
+                android:text="Remédios"
+                android:layout_width="0.0dip"
+                android:layout_height="fill_parent"
+                android:layout_weight="1.0"
+                android:layout_marginLeft="3dp"
+                android:padding="24dp"
+                android:drawableLeft="@drawable/ic_remedios"/>
+
+            <Button
+                android:id="@+id/btnQRcode"
+                android:text="QRcode"
+                android:layout_width="0.0dip"
+                android:layout_height="fill_parent"
+                android:layout_weight="1.0"
+                android:layout_marginLeft="9dp"
+                android:padding="24dp"
+                android:drawableLeft="@drawable/ic_qrcode"/>
+        </LinearLayout>
+    </RelativeLayout>
+
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent" android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="8dp">
+
+            <Button
+                android:id="@+id/btnDoacao"
+                android:text="Doação"
+                android:layout_width="0.0dip"
+                android:layout_height="fill_parent"
+                android:layout_weight="1.0"
+                android:layout_marginLeft="3dp"
+                android:padding="24dp"
+                android:drawableLeft="@drawable/ic_doacao"/>
+
+            <Button
+                android:id="@+id/btnAvaliacao"
+                android:text="Avaliação"
+                android:layout_width="0.0dip"
+                android:layout_height="fill_parent"
+                android:layout_weight="1.0"
+                android:layout_marginLeft="9dp"
+                android:padding="24dp"
+                android:drawableLeft="@drawable/ic_avaliacao"/>
+        </LinearLayout>
+    </RelativeLayout>
 </LinearLayout>

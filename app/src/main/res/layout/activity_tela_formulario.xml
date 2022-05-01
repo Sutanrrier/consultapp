@@ -36,7 +36,7 @@
         android:background="@drawable/custom_input"
         android:drawableStart="@drawable/custom_nome_icon"
         android:drawablePadding="8dp"
-        android:hint="Digite o seu nome completo"/>
+        android:hint="Digite o seu nome"/>
 
     <EditText
         android:id="@+id/edtEmail"
