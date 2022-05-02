@@ -12,13 +12,43 @@
         android:layout_height="wrap_content"
         android:text="O que você está sentindo?"
         android:layout_marginTop="30sp"
-        android:textSize="20sp"/>
+        android:textSize="20sp"
+        android:layout_marginBottom="10sp"/>
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Febre"
+        android:id="@+id/CbFebre"/>
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Dor de cabeça"
+        android:id="@+id/CbDorcabeca"/>
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Diarreia"
+        android:id="@+id/CbDiarreia"/>
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Falta de ar"
+        android:id="@+id/CbAr"/>
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tontura"
+        android:id="@+id/CbTontura"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Quantos °C de febre?"
+        android:id="@+id/txtFebre"/>
     <EditText
         android:layout_width="match_parent"
-        android:layout_height="180sp"
-        android:textSize="15sp"
-        android:gravity="start"
-        android:id="@+id/edtSentindo"/>
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:id="@+id/EdtFebre"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -29,7 +59,7 @@
             android:id="@+id/btnEnviarMarcarConsulta"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Enivar"
+            android:text="Enviar"
             android:layout_marginRight="10sp"/>
         <Button
             android:id="@+id/btnVoltarMarcarConsulta"
