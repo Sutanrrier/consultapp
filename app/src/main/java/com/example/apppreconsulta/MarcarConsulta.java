@@ -1,14 +1,21 @@
 package com.example.apppreconsulta;
 
+import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
+import android.content.DialogInterface;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+import java.util.Random;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.FirebaseDatabase;
@@ -26,6 +33,10 @@ public class MarcarConsulta extends AppCompatActivity implements View.OnClickLis
     Button btnVoltarMarcarConsulta;
     TextView txtFebre;
     String febre2, dorcabeca2, diarreira2, ar2, tontura2, edtfebre2;
+
+    AlertDialog dialog;
+    AlertDialog.Builder builder;
+    String CPF;
 
     FirebaseDatabase rootNode;
     DatabaseReference reference;
@@ -98,6 +109,8 @@ public class MarcarConsulta extends AppCompatActivity implements View.OnClickLis
                     tontura2 = "";
                 }
 
+               //exibirMensagemEdt(view);
+
 
                 String febre1 = febre2;
                 String dorcabeca1 = dorcabeca2;
@@ -107,15 +120,41 @@ public class MarcarConsulta extends AppCompatActivity implements View.OnClickLis
                 String edtfebre1 = EdtFebre.getText().toString();
 
 
+
                 Toast.makeText(MarcarConsulta.this, "Consulta Marcada", Toast.LENGTH_SHORT).show();
                 DataBaseConsulta helperclass = new DataBaseConsulta (febre1, dorcabeca1, diarreia1, ar1, tontura1, edtfebre1);
-                reference.child(edtfebre1).setValue(helperclass);
+                reference.child("Doente").setValue(helperclass);
+
+
+
+                finish();
 
             }
         });
 
 
 
+    }
+    public void exibirMensagemEdt(String titulo, String texto){
+
+        AlertDialog.Builder mensagem = new AlertDialog.Builder(MarcarConsulta.this);
+        mensagem.setTitle(titulo);
+        mensagem.setMessage(texto);
+        final EditText input = new EditText(this);
+        mensagem.setView(input);
+        mensagem.setNeutralButton("OK", new DialogInterface.OnClickListener() {
+
+            public void onClick(DialogInterface dialog, int which) {
+
+                Toast.makeText(getApplicationContext(), input.getText().toString().trim(),
+                        Toast.LENGTH_SHORT).show();
+            }
+
+        });
+
+        mensagem.show();
+        InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+        imm.toggleSoftInput(InputMethodManager.SHOW_FORCED, 0);
     }
 
     @Override

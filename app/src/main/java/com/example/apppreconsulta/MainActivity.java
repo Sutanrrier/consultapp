@@ -28,6 +28,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     Button btnEntrar;
     Button btnCadastrar;
+    Button btnRedefinir;
     EditText edtUsuario;
     EditText edtSenha;
 
@@ -38,6 +39,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         btnEntrar = findViewById(R.id.btnEntrar);
         btnCadastrar = findViewById(R.id.btnCadastrar);
+        btnRedefinir = findViewById(R.id.btnRedefinir);
         edtUsuario = findViewById(R.id.edtUsuario);
         edtSenha = findViewById(R.id.edtSenha);
 
@@ -55,6 +57,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             public void onClick(View v) {
                 cadastroUsuario(v);
             }
+        });
+        btnRedefinir.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) { redefinirSenha(v); }
         });
 
     }
@@ -142,6 +148,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     public void cadastroUsuario(View v){
         Intent intent = new Intent(this,TelaFormulario.class);
+        startActivity(intent);
+    }
+    public void redefinirSenha(View v){
+        Intent intent = new Intent (this, RedefinirSenha.class);
         startActivity(intent);
     }
 

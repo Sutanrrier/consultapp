@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RedefinirSenha"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Redefinir a senha"
+        android:textAlignment="center"
+        android:textSize="36sp"
+        android:layout_marginBottom="18dp"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="150sp"/>
+
+    <EditText
+        android:id="@+id/edtRedefinirCPF"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:layout_margin="8dp"
+        android:background="@drawable/custom_input"
+        android:drawablePadding="8dp"
+        android:hint="CPF"
+        android:inputType="number"/>
+
+    <EditText
+        android:id="@+id/edtRedefinirSenha"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:layout_margin="8dp"
+        android:background="@drawable/custom_input"
+        android:drawablePadding="8dp"
+        android:password="true"
+        android:hint="SENHA"/>
+
+    <EditText
+        android:id="@+id/edtRedefinirConfSenha"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:layout_margin="8dp"
+        android:background="@drawable/custom_input"
+        android:drawablePadding="8dp"
+        android:password="true"
+        android:hint="CONFIRMAR SENHA"/>
+
+    <Button
+        android:id="@+id/btnRedefinirSenha"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Redefinir sua senha"/>
+
+
+
+</LinearLayout>

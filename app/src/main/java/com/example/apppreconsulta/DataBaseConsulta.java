@@ -4,6 +4,8 @@ public class DataBaseConsulta {
 
     String febre, dorcabeca, diarreia, ar, tontura, edtfebre;
 
+
+
     public DataBaseConsulta(String febre, String dorcabeca, String diarreia, String ar, String tontura, String edtfebre){
         this.febre = febre;
         this.dorcabeca = dorcabeca;
@@ -60,4 +62,5 @@ public class DataBaseConsulta {
     public void setEdtfebre(String edtfebre) {
         this.edtfebre = edtfebre;
     }
+
 }
