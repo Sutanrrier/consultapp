@@ -76,7 +76,7 @@
             android:id="@+id/btnRedefinir"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Redefinir senha"
+            android:text="@string/btn_esquecer"
             android:padding="12dp"
             android:layout_marginTop="12dp"
             android:layout_marginHorizontal="24dp"/>

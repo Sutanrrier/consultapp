@@ -4,9 +4,10 @@
     <string name="txt_senha">Senha</string>
     <string name="btn_entrar">Entrar na conta</string>
     <string name="btn_cadastrar">Sem conta? Cadastre-se aqui!</string>
+    <string name="btn_esquecer">Esqueceu a senha? CLIQUE AQUI!</string>
     <string name="txt_bemvindo">Bem Vindo</string>
     <string name="txt_cadastro">Cadastre-se aqui!</string>
-    <string name="title_activity_consulta">Consulta</string>
+    <string name="title_activity_consulta">CONSULTA</string>
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>
     <string name="second_fragment_label">Second Fragment</string>
