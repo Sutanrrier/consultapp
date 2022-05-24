@@ -7,75 +7,113 @@
     tools:context=".MarcarConsulta"
     android:orientation="vertical">
 
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:src="@drawable/ic_consulta_logo"
+        android:layout_marginLeft="32dp"
+        android:layout_marginRight="32dp"
+        android:layout_marginTop="18dp"
+        android:layout_marginBottom="18dp"
+        android:contentDescription="Logo" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Consulta"
-        android:textSize="50sp"
+        android:text="MARQUE SUA CONSULTA"
+        android:textSize="32sp"
         android:gravity="center"
-        android:layout_marginTop="100sp"
-        android:layout_marginBottom="80sp"/>
+        android:layout_marginTop="18sp"
+        android:layout_marginBottom="18sp"/>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <Button
-        android:id="@+id/btnMarcarUrgencia"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="40sp"
-        android:layout_marginLeft="10sp"
-        android:text="Urgência"/>
-
-        <Button
-            android:id="@+id/btnMarcarMaternidade"
-            android:layout_width="wrap_content"
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent" android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true">
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="40sp"
-            android:layout_marginLeft="10sp"
-            android:text="Maternidade"/>
+            android:orientation="horizontal"
+            android:padding="12dp">
 
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
+            <Button
+                android:id="@+id/btnMarcarUrgencia"
+                android:text="Urgência"
+                android:layout_width="0.0dip"
+                android:layout_height="fill_parent"
+                android:layout_weight="1.0"
+                android:layout_marginLeft="3dp"
+                android:padding="32dp"/>
 
-        <Button
-            android:id="@+id/btnMarcarClinica"
-            android:layout_width="wrap_content"
+            <Button
+                android:id="@+id/btnMarcarMaternidade"
+                android:text="Maternidade"
+                android:layout_width="0.0dip"
+                android:layout_height="fill_parent"
+                android:layout_weight="1.0"
+                android:layout_marginLeft="9dp"
+                android:padding="32dp"/>
+        </LinearLayout>
+    </RelativeLayout>
+
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent" android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true">
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="40sp"
-            android:layout_marginLeft="10sp"
-            android:text="Clinica"/>
+            android:orientation="horizontal"
+            android:padding="12dp">
 
-        <Button
-            android:id="@+id/btnMarcarDentista"
-            android:layout_width="wrap_content"
+            <Button
+                android:id="@+id/btnMarcarClinica"
+                android:text="Clinica"
+                android:layout_width="0.0dip"
+                android:layout_height="fill_parent"
+                android:layout_weight="1.0"
+                android:layout_marginLeft="3dp"
+                android:padding="32dp"/>
+
+            <Button
+                android:id="@+id/btnMarcarDentista"
+                android:text="ODONTOLOGIA"
+                android:layout_width="0.0dip"
+                android:layout_height="fill_parent"
+                android:layout_weight="1.0"
+                android:layout_marginLeft="9dp"
+                android:padding="32dp"/>
+        </LinearLayout>
+    </RelativeLayout>
+
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent" android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true">
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="40sp"
-            android:layout_marginLeft="10sp"
-            android:text="Dentista"/>
+            android:orientation="horizontal"
+            android:padding="12dp">
+1
+            <Button
+                android:id="@+id/btnMarcarCAPS"
+                android:text="CAPS"
+                android:layout_width="0.0dip"
+                android:layout_height="fill_parent"
+                android:layout_weight="1.0"
+                android:layout_marginLeft="3dp"
+                android:padding="32dp"/>
 
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <Button
-            android:id="@+id/btnMarcarCAPS"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="40sp"
-            android:layout_marginLeft="10sp"
-            android:text="CAPS"/>
-
-    </LinearLayout>
-
-
+            <Button
+                android:id="@+id/btnMarcarPsiquiatria"
+                android:text="PSIQUIATRIA"
+                android:layout_width="0.0dip"
+                android:layout_height="fill_parent"
+                android:layout_weight="1.0"
+                android:layout_marginLeft="9dp"
+                android:padding="32dp"/>
+        </LinearLayout>
+    </RelativeLayout>
 
 </LinearLayout>
