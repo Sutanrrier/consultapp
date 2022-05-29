@@ -15,6 +15,7 @@ public class TelaEntrar extends AppCompatActivity {
     //TextView informacoesTelefone;
     //TextView informacoesEndereco;
     Button consulta;
+    String CPF;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +30,8 @@ public class TelaEntrar extends AppCompatActivity {
 
         Intent intent = getIntent();
         String user_nome = intent.getStringExtra("nome");
+        String user_User = intent.getStringExtra("usuario");
+        CPF = user_User;
         //String user_email = intent.getStringExtra("email");
         //String user_telefone = intent.getStringExtra("telefone");
         //String user_endereco = intent.getStringExtra("endereco");
@@ -49,6 +52,7 @@ public class TelaEntrar extends AppCompatActivity {
     }
     public void consulta(View v){
         Intent intent = new Intent(this,Consulta.class);
+        intent.putExtra("usuario", CPF);
         startActivity(intent);
     }
 }

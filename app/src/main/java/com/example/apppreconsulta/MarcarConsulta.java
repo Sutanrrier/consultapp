@@ -15,6 +15,7 @@ public class MarcarConsulta extends AppCompatActivity implements View.OnClickLis
     Button btnMarcarClinica;
     Button btnMarcarDentista;
     Button btnMarcarCAPS;
+    String CPF;
 
 
 
@@ -28,6 +29,10 @@ public class MarcarConsulta extends AppCompatActivity implements View.OnClickLis
       btnMarcarClinica = findViewById(R.id.btnMarcarClinica);
       btnMarcarDentista = findViewById(R.id.btnMarcarDentista);
       btnMarcarCAPS = findViewById(R.id.btnMarcarCAPS);
+
+      Intent intent = getIntent();
+        String user_User = intent.getStringExtra("usuario");
+        CPF = user_User;
 
 
       btnMarcarUrgencia.setOnClickListener(new View.OnClickListener() {
@@ -48,6 +53,7 @@ public class MarcarConsulta extends AppCompatActivity implements View.OnClickLis
     }
     public void localizacao(View v){
         Intent intent = new Intent(this, Localizacao.class);
+        intent.putExtra("usuario", CPF);
         startActivity(intent);
         finish();
     }

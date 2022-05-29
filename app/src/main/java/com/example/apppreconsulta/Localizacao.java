@@ -18,11 +18,16 @@ import com.google.android.gms.maps.model.MarkerOptions;
 public class Localizacao extends FragmentActivity implements OnMapReadyCallback {
 
     GoogleMap map;
+    String CPF;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_localizacao);
+
+        Intent intent = getIntent();
+        String user_User = intent.getStringExtra("usuario");
+        CPF = user_User;
 
         SupportMapFragment mapFragment = (SupportMapFragment)  getSupportFragmentManager()
                 .findFragmentById(R.id.map);
@@ -63,6 +68,7 @@ public class Localizacao extends FragmentActivity implements OnMapReadyCallback 
 
                 Intent intent = new Intent(Localizacao.this, ConfirmarConsulta.class);
                 intent.putExtra("local", markertitle);
+                intent.putExtra("usuario", CPF);
                 startActivity(intent);
                 finish();
 

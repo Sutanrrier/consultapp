@@ -94,7 +94,6 @@ public class RedefinirSenha extends AppCompatActivity implements View.OnClickLis
 
     private void isUser() {
         final String usuarioUsuario = redefinirCPF.getText().toString().trim();
-        final String usuarioSenha = redefinirSenha.getText().toString().trim();
 
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference("usuario");
 

@@ -33,6 +33,7 @@ public class ConfirmarConsulta extends AppCompatActivity {
     EditText confirmarCPF;
     CalendarView calendario;
     String calendar;
+    String CPFs;
 
 
     FirebaseDatabase rootNode;
@@ -47,8 +48,11 @@ public class ConfirmarConsulta extends AppCompatActivity {
         confirmarConsulta = findViewById(R.id.btnConfirmarConsulta);
         marker = findViewById(R.id.marker);
         medicos = findViewById(R.id.spnmedicos);
-        confirmarCPF = findViewById(R.id.ConfirmCPF);
         calendario = findViewById(R.id.Calendario);
+
+        Intent intent = getIntent();
+        String user_User = intent.getStringExtra("usuario");
+        CPFs = user_User;
 
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.medicos, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -92,7 +96,7 @@ public class ConfirmarConsulta extends AppCompatActivity {
     }*/
 
     private void isUser(){
-        final String usuarioUsuario = confirmarCPF.getText().toString().trim();
+        final String usuarioUsuario = CPFs;
 
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference("usuario");
 
@@ -108,7 +112,7 @@ public class ConfirmarConsulta extends AppCompatActivity {
                     references = rootNode.getReference("consulta");
 
 
-                    String CPF = confirmarCPF.getText().toString();
+                    String CPF = CPFs;
                     String nome = nomeb;
                     String local = marker.getText().toString();
                     String medico = medicos.getSelectedItem().toString();
@@ -118,6 +122,7 @@ public class ConfirmarConsulta extends AppCompatActivity {
                     references.child(CPF).setValue(helperclass);
 
                     Intent intent = new Intent(getApplicationContext(), Consulta.class);
+                    intent.putExtra("usuario", CPF);
                     startActivity(intent);
                     Toast.makeText(ConfirmarConsulta.this, "Consulta Marcada", Toast.LENGTH_SHORT).show();
                     finish();
