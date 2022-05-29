@@ -64,6 +64,7 @@ public class Localizacao extends FragmentActivity implements OnMapReadyCallback 
                 Intent intent = new Intent(Localizacao.this, ConfirmarConsulta.class);
                 intent.putExtra("local", markertitle);
                 startActivity(intent);
+                finish();
 
                 return false;
             }

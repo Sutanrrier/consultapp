@@ -56,10 +56,6 @@ public class TelaFormulario extends AppCompatActivity  implements View.OnClickLi
                     edtNome.setError("Obrigatório");
                     return;
                 }
-                if (email.isEmpty()) {
-                    edtEmail.setError("Obrigatório");
-                    return;
-                }
                 if (telefone.isEmpty()) {
                     edtTelefone.setError("Obrigatório");
                     return;

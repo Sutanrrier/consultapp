@@ -49,6 +49,7 @@ public class MarcarConsulta extends AppCompatActivity implements View.OnClickLis
     public void localizacao(View v){
         Intent intent = new Intent(this, Localizacao.class);
         startActivity(intent);
+        finish();
     }
 
     @Override

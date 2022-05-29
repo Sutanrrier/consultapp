@@ -2,65 +2,55 @@ package com.example.apppreconsulta;
 
 public class DataBaseConsulta {
 
-    String febre, dorcabeca, diarreia, ar, tontura, edtfebre;
+    String CPF, nome, local, medico, data;
 
 
 
-    public DataBaseConsulta(String febre, String dorcabeca, String diarreia, String ar, String tontura, String edtfebre){
-        this.febre = febre;
-        this.dorcabeca = dorcabeca;
-        this.diarreia = diarreia;
-        this.ar = ar;
-        this.tontura = tontura;
-        this.edtfebre = edtfebre;
+    public DataBaseConsulta(String CPF, String nome, String local, String medico, String data){
+        this.CPF = CPF;
+        this.nome = nome;
+        this.local = local;
+        this.medico = medico;
+        this.data = data;
     }
 
-    public String getFebre() {
-        return febre;
+    public String getCPF() {
+        return CPF;
     }
 
-    public void setFebre(String febre) {
-        this.febre = febre;
+    public void setCPF(String CPF) {
+        this.CPF = CPF;
     }
 
-    public String getDorcabeca() {
-        return dorcabeca;
+    public String getNome() {
+        return nome;
     }
 
-    public void setDorcabeca(String dorcabeca) {
-        this.dorcabeca = dorcabeca;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
-    public String getDiarreia() {
-        return diarreia;
+    public String getLocal() {
+        return local;
     }
 
-    public void setDiarreia(String diarreia) {
-        this.diarreia = diarreia;
+    public void setLocal(String local) {
+        this.local = local;
     }
 
-    public String getAr() {
-        return ar;
+    public String getMedico() {
+        return medico;
     }
 
-    public void setAr(String ar) {
-        this.ar = ar;
+    public void setMedico(String medico) {
+        this.medico = medico;
     }
 
-    public String getTontura() {
-        return tontura;
+    public String getData() {
+        return data;
     }
 
-    public void setTontura(String tontura) {
-        this.tontura = tontura;
+    public void setData(String data) {
+        this.data = data;
     }
-
-    public String getEdtfebre() {
-        return edtfebre;
-    }
-
-    public void setEdtfebre(String edtfebre) {
-        this.edtfebre = edtfebre;
-    }
-
 }

@@ -44,6 +44,16 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/Calendario"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Confirme seu CPF"
+        android:gravity="center"
+        android:textSize="30sp"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/ConfirmCPF"/>
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
