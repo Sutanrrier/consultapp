@@ -1,2 +1,10 @@
 include ':app'
 rootProject.name = "AppFirebase"
+
+dependencyResolutionManagement {
+
+    repositories {
+
+        maven { url 'https://jitpack.io' }
+    }
+}
