@@ -38,21 +38,31 @@ public class MarcarConsulta extends AppCompatActivity implements View.OnClickLis
       btnMarcarUrgencia.setOnClickListener(new View.OnClickListener() {
           @Override
           public void onClick(View v) {
-              localizacao(v);
+              localizacaourgencia(v);
           }
       });
-      /*btnMarcarMaternidade.setOnClickListener(new View.OnClickListener() {
+      btnMarcarMaternidade.setOnClickListener(new View.OnClickListener() {
           @Override
           public void onClick(View view) {
-              localizacao(view);
+              localizacaomaternidade(view);
           }
-      });*/
+      });
 
 
 
     }
-    public void localizacao(View v){
+
+    private void localizacaomaternidade(View view) {
+        Intent intent = new Intent(this,Localizacao.class);
+        intent.putExtra("string", "maternidade");
+        intent.putExtra("usuario", CPF);
+        startActivity(intent);
+        finish();
+    }
+
+    public void localizacaourgencia(View v){
         Intent intent = new Intent(this, Localizacao.class);
+        intent.putExtra("string", "urgencia");
         intent.putExtra("usuario", CPF);
         startActivity(intent);
         finish();

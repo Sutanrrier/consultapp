@@ -34,6 +34,7 @@ public class ConfirmarConsulta extends AppCompatActivity {
     CalendarView calendario;
     String calendar;
     String CPFs;
+    String i;
 
 
     FirebaseDatabase rootNode;
@@ -51,7 +52,9 @@ public class ConfirmarConsulta extends AppCompatActivity {
         calendario = findViewById(R.id.Calendario);
 
         Intent intent = getIntent();
+        String user_tipo = intent.getStringExtra("tipo");
         String user_User = intent.getStringExtra("usuario");
+        i = user_tipo;
         CPFs = user_User;
 
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.medicos, android.R.layout.simple_spinner_item);
@@ -109,8 +112,12 @@ public class ConfirmarConsulta extends AppCompatActivity {
                     String nomeDB = snapshot.child(usuarioUsuario).child("nome").getValue(String.class);
                     String nomeb = nomeDB;
                     rootNode = FirebaseDatabase.getInstance();
-                    references = rootNode.getReference("consulta");
-
+                    switch (i) {
+                        case "urgencia": references = rootNode.getReference("consulta_urgencia");
+                        break;
+                        case "maternidade": references = rootNode.getReference("consulta_maternidade");
+                        break;
+                    }
 
                     String CPF = CPFs;
                     String nome = nomeb;

@@ -21,8 +21,10 @@ public class ConsultaMarcada extends AppCompatActivity implements View.OnClickLi
     TextView localMarcado;
     TextView medicoMarcado;
     TextView dataMarcada;
+    TextView localmat,medicomat,datamat;
     String CPF;
     Button urgencia;
+    Button maternidade;
 
 
 
@@ -35,6 +37,10 @@ public class ConsultaMarcada extends AppCompatActivity implements View.OnClickLi
         medicoMarcado = findViewById(R.id.medicoconsulta);
         dataMarcada = findViewById(R.id.dataconsulta);
         urgencia = findViewById(R.id.btnurgencia);
+        maternidade = findViewById(R.id.btnmaternidade);
+        localmat = findViewById(R.id.localmaternidade);
+        medicomat = findViewById(R.id.medicomaternidade);
+        datamat = findViewById(R.id.datamaternidade);
 
         Intent intent = getIntent();
         String user_User = intent.getStringExtra("usuario");
@@ -46,6 +52,10 @@ public class ConsultaMarcada extends AppCompatActivity implements View.OnClickLi
                 acaourgencia();
             }
         });
+        maternidade.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {acaomaternidade();}
+        });
 
 
     }
@@ -53,7 +63,7 @@ public class ConsultaMarcada extends AppCompatActivity implements View.OnClickLi
     public void acaourgencia(){
         final String usuarioUsuario = CPF;
 
-        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("consulta");
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("consulta_urgencia");
 
         reference.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -66,6 +76,35 @@ public class ConsultaMarcada extends AppCompatActivity implements View.OnClickLi
                     localMarcado.setText(local);
                     medicoMarcado.setText(medico);
                     dataMarcada.setText(data);
+
+
+                }
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+    }
+    public void acaomaternidade(){
+        final String usuarioUsuario = CPF;
+
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("consulta_maternidade");
+
+        reference.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if(snapshot.exists()){
+                    String localmate = snapshot.child(usuarioUsuario).child("local").getValue(String.class);
+                    String medicomate = snapshot.child(usuarioUsuario).child("medico").getValue(String.class);
+                    String datamate = snapshot.child(usuarioUsuario).child("data").getValue(String.class);
+
+                    localmat.setText(localmate);
+                    medicomat.setText(medicomate);
+                    datamat.setText(datamate);
 
 
                 }
