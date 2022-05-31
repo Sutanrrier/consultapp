@@ -10,11 +10,10 @@ import android.widget.TextView;
 
 public class TelaEntrar extends AppCompatActivity {
 
+    //Variaveis
     TextView informacoesNome;
-    //TextView informacoesEmail;
-    //TextView informacoesTelefone;
-    //TextView informacoesEndereco;
     Button consulta;
+    Button remedios;
     String CPF;
 
     @Override
@@ -23,35 +22,42 @@ public class TelaEntrar extends AppCompatActivity {
         setContentView(R.layout.activity_tela_entrar);
 
         informacoesNome = findViewById(R.id.txtNomeentrar);
-        //informacoesEmail = findViewById(R.id.txtEmailentrar);
-        //informacoesTelefone = findViewById(R.id.txtTelefoneentrar);
-        //informacoesEndereco = findViewById(R.id.txtEnderecoentrar);
         consulta = findViewById(R.id.btnConsulta);
+        remedios = findViewById(R.id.btnRemedios);
 
         Intent intent = getIntent();
         String user_nome = intent.getStringExtra("nome");
         String user_User = intent.getStringExtra("usuario");
         CPF = user_User;
-        //String user_email = intent.getStringExtra("email");
-        //String user_telefone = intent.getStringExtra("telefone");
-        //String user_endereco = intent.getStringExtra("endereco");
-
-
         informacoesNome.setText(user_nome.split(" ")[0]);
-        //informacoesEmail.setText(user_email);
-        //informacoesTelefone.setText(user_telefone);
-        //informacoesEndereco.setText(user_endereco);
 
+        //Trigger do botão Consulta
         consulta.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 consulta(v);
             }
+        });
 
+        //Trigger do botão Remedios
+        remedios.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                remedios(v);
+            }
         });
     }
+
+    //Tela de Marcar Consulta
     public void consulta(View v){
         Intent intent = new Intent(this,Consulta.class);
+        intent.putExtra("usuario", CPF);
+        startActivity(intent);
+    }
+
+    //Tela de Remedios
+    public void remedios(View v){
+        Intent intent = new Intent(this,telaRemedios.class);
         intent.putExtra("usuario", CPF);
         startActivity(intent);
     }
