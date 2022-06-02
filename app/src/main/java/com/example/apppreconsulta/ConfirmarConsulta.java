@@ -117,6 +117,12 @@ public class ConfirmarConsulta extends AppCompatActivity {
                         break;
                         case "maternidade": references = rootNode.getReference("consulta_maternidade");
                         break;
+                        case "clinica": references = rootNode.getReference("consulta_clinica");
+                        break;
+                        case "dentista": references = rootNode.getReference("consulta_odontologia");
+                        break;
+                        case "CAPS": references = rootNode.getReference("consulta_CAPS");
+                        break;
                     }
 
                     String CPF = CPFs;
