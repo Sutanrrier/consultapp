@@ -14,7 +14,6 @@ import com.google.firebase.database.FirebaseDatabase;
 public class TelaFormulario extends AppCompatActivity  implements View.OnClickListener {
 
     Button btnSalvar;
-    Button btnVoltar;
     EditText edtNome;
     EditText edtEmail;
     EditText edtTelefone;
@@ -38,46 +37,43 @@ public class TelaFormulario extends AppCompatActivity  implements View.OnClickLi
         edtUsuario = findViewById(R.id.edtUsuario);
         edtSenha = findViewById(R.id.edtSenha);
 
-        btnSalvar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        btnSalvar.setOnClickListener(v -> {
 
-                rootNode = FirebaseDatabase.getInstance();
-                reference = rootNode.getReference("usuario");
+            rootNode = FirebaseDatabase.getInstance();
+            reference = rootNode.getReference("usuario");
 
-                String nome = edtNome.getText().toString();
-                String email = edtEmail.getText().toString();
-                String telefone = edtTelefone.getText().toString();
-                String endereco = edtEndereco.getText().toString();
-                String usuario = edtUsuario.getText().toString();
-                String senha = edtSenha.getText().toString();
+            String nome = edtNome.getText().toString();
+            String email = edtEmail.getText().toString();
+            String telefone = edtTelefone.getText().toString();
+            String endereco = edtEndereco.getText().toString();
+            String usuario = edtUsuario.getText().toString();
+            String senha = edtSenha.getText().toString();
 
-                if (nome.isEmpty()) {
-                    edtNome.setError("Obrigatório");
-                    return;
-                }
-                if (telefone.isEmpty()) {
-                    edtTelefone.setError("Obrigatório");
-                    return;
-                }
-                if (endereco.isEmpty()) {
-                    edtEndereco.setError("Obrigatório");
-                    return;
-                }
-                if (usuario.isEmpty()) {
-                    edtUsuario.setError("Obrigatório");
-                    return;
-                }
-                if (senha.isEmpty()) {
-                    edtSenha.setError("Obrigatório");
-                    return;
-                }
-
-                Toast.makeText(TelaFormulario.this, "Cadastro feito", Toast.LENGTH_SHORT).show();
-                DatabaseHelper helperclass = new DatabaseHelper(nome, email, telefone, endereco, usuario, senha);
-                reference.child(usuario).setValue(helperclass);
-
+            if (nome.isEmpty()) {
+                edtNome.setError("Obrigatório");
+                return;
             }
+            if (telefone.isEmpty()) {
+                edtTelefone.setError("Obrigatório");
+                return;
+            }
+            if (endereco.isEmpty()) {
+                edtEndereco.setError("Obrigatório");
+                return;
+            }
+            if (usuario.isEmpty()) {
+                edtUsuario.setError("Obrigatório");
+                return;
+            }
+            if (senha.isEmpty()) {
+                edtSenha.setError("Obrigatório");
+                return;
+            }
+
+            Toast.makeText(TelaFormulario.this, "Cadastro feito", Toast.LENGTH_SHORT).show();
+            DatabaseHelper helperclass = new DatabaseHelper(nome, email, telefone, endereco, usuario, senha);
+            reference.child(usuario).setValue(helperclass);
+
         });
     }
 

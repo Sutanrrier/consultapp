@@ -1,13 +1,10 @@
 package com.example.apppreconsulta;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.FragmentActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
-import android.widget.Switch;
 
-import com.google.android.gms.maps.CameraUpdate;
+import androidx.fragment.app.FragmentActivity;
+
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -29,12 +26,12 @@ public class Localizacao extends FragmentActivity implements OnMapReadyCallback 
 
         Intent intent = getIntent();
         String user_numero = intent.getStringExtra("string");
-        String user_User = intent.getStringExtra("usuario");
-        CPF = user_User;
+        CPF = intent.getStringExtra("usuario");
         i = user_numero;
 
         SupportMapFragment mapFragment = (SupportMapFragment)  getSupportFragmentManager()
                 .findFragmentById(R.id.map);
+        assert mapFragment != null;
         mapFragment.getMapAsync(this);
 
 
@@ -153,20 +150,17 @@ public class Localizacao extends FragmentActivity implements OnMapReadyCallback 
 
         }
 
-        map.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
-            @Override
-            public boolean onMarkerClick(Marker marker) {
-                String markertitle = marker.getTitle();
+        map.setOnMarkerClickListener(marker -> {
+            String markertitle = marker.getTitle();
 
-                Intent intent = new Intent(Localizacao.this, ConfirmarConsulta.class);
-                intent.putExtra("local", markertitle);
-                intent.putExtra("usuario", CPF);
-                intent.putExtra("tipo", i);
-                startActivity(intent);
-                finish();
+            Intent intent = new Intent(Localizacao.this, ConfirmarConsulta.class);
+            intent.putExtra("local", markertitle);
+            intent.putExtra("usuario", CPF);
+            intent.putExtra("tipo", i);
+            startActivity(intent);
+            finish();
 
-                return false;
-            }
+            return false;
         });
 
 

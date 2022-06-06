@@ -1,16 +1,14 @@
 package com.example.apppreconsulta;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -40,12 +38,7 @@ public class RedefinirSenha extends AppCompatActivity implements View.OnClickLis
         redefinirConfSenha = findViewById(R.id.edtRedefinirConfSenha);
         btnredefinirSenha = findViewById(R.id.btnRedefinirSenha);
 
-        btnredefinirSenha.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                redefinirASenha(v);
-            }
-        });
+        btnredefinirSenha.setOnClickListener(this::redefinirASenha);
 
     }
 
@@ -86,7 +79,6 @@ public class RedefinirSenha extends AppCompatActivity implements View.OnClickLis
     }
     public void redefinirASenha(View v){
         if (!validarUsername() | !validarSenha() | !validarSenhaconf()){
-            return;
         }else{
             isUser();
         }
@@ -120,16 +112,13 @@ public class RedefinirSenha extends AppCompatActivity implements View.OnClickLis
         reference = rootNode.getReference("usuario");
         String userCPF = redefinirCPF.getText().toString();
         String Senha = redefinirSenha.getText().toString();
-        HashMap hashMap = new HashMap();
+        HashMap<String, Object> hashMap = new HashMap<>();
         hashMap.put("senha", Senha);
 
 
-        reference.child(userCPF).updateChildren(hashMap).addOnCompleteListener(new OnCompleteListener() {
-            @Override
-            public void onComplete(@NonNull Task task) {
-                Toast.makeText(RedefinirSenha.this, "Senha redefinida", Toast.LENGTH_SHORT).show();
-                finish();
-            }
+        reference.child(userCPF).updateChildren(hashMap).addOnCompleteListener(task -> {
+            Toast.makeText(RedefinirSenha.this, "Senha redefinida", Toast.LENGTH_SHORT).show();
+            finish();
         });
     }
 

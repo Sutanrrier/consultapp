@@ -21,19 +21,10 @@ public class Consulta extends AppCompatActivity {
         btnMarcarConsulta = findViewById(R.id.btnMarcarConsulta);
 
         Intent intent = getIntent();
-        String user_User = intent.getStringExtra("usuario");
-        CPF = user_User;
+        CPF = intent.getStringExtra("usuario");
 
-        btnMarcarConsulta.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                telaMarcarConsulta(v);
-            }
-        });
-        btnConsultaMarcada.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) { telaConsultaMarcada(); }
-        });
+        btnMarcarConsulta.setOnClickListener(this::telaMarcarConsulta);
+        btnConsultaMarcada.setOnClickListener(view -> telaConsultaMarcada());
 
     }
 

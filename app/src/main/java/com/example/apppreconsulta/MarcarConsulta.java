@@ -33,38 +33,15 @@ public class MarcarConsulta extends AppCompatActivity implements View.OnClickLis
       btnMarcarPsiquiatria = findViewById(R.id.btnMarcarPsiquiatria);
 
       Intent intent = getIntent();
-        String user_User = intent.getStringExtra("usuario");
-        CPF = user_User;
+        CPF = intent.getStringExtra("usuario");
 
 
-      btnMarcarUrgencia.setOnClickListener(new View.OnClickListener() {
-          @Override
-          public void onClick(View v) {
-              localizacaourgencia(v);
-          }
-      });
-      btnMarcarMaternidade.setOnClickListener(new View.OnClickListener() {
-          @Override
-          public void onClick(View view) {
-              localizacaomaternidade(view);
-          }
-      });
-      btnMarcarClinica.setOnClickListener(new View.OnClickListener() {
-          @Override
-          public void onClick(View view) {localizacaoclinica();}
-      });
-      btnMarcarDentista.setOnClickListener(new View.OnClickListener() {
-          @Override
-          public void onClick(View view) {localizacaodentista();}
-      });
-      btnMarcarCAPS.setOnClickListener(new View.OnClickListener() {
-          @Override
-          public void onClick(View view) {localizacaoCAPS();}
-      });
-      btnMarcarPsiquiatria.setOnClickListener(new View.OnClickListener() {
-          @Override
-          public void onClick(View view) {localizacaopsiquiatria();}
-      });
+      btnMarcarUrgencia.setOnClickListener(this::localizacaourgencia);
+      btnMarcarMaternidade.setOnClickListener(this::localizacaomaternidade);
+      btnMarcarClinica.setOnClickListener(view -> localizacaoclinica());
+      btnMarcarDentista.setOnClickListener(view -> localizacaodentista());
+      btnMarcarCAPS.setOnClickListener(view -> localizacaoCAPS());
+      btnMarcarPsiquiatria.setOnClickListener(view -> localizacaopsiquiatria());
 
 
     }

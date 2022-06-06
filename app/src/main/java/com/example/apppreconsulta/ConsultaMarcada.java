@@ -1,19 +1,18 @@
 package com.example.apppreconsulta;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 public class ConsultaMarcada extends AppCompatActivity implements View.OnClickListener {
@@ -62,31 +61,13 @@ public class ConsultaMarcada extends AppCompatActivity implements View.OnClickLi
 
 
         Intent intent = getIntent();
-        String user_User = intent.getStringExtra("usuario");
-        CPF = user_User;
+        CPF = intent.getStringExtra("usuario");
 
-        urgencia.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                acaourgencia();
-            }
-        });
-        maternidade.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {acaomaternidade();}
-        });
-        clinica.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {acaoclinica();}
-        });
-        odonto.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {acaoodonto();}
-        });
-        caps.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {acaocaps();}
-        });
+        urgencia.setOnClickListener(view -> acaourgencia());
+        maternidade.setOnClickListener(view -> acaomaternidade());
+        clinica.setOnClickListener(view -> acaoclinica());
+        odonto.setOnClickListener(view -> acaoodonto());
+        caps.setOnClickListener(view -> acaocaps());
 
 
 

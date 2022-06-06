@@ -46,22 +46,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnEntrar.setOnClickListener(this);
         btnCadastrar.setOnClickListener(this);
 
-        btnEntrar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                loginUsuario(v);
-            }
-        });
-        btnCadastrar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                cadastroUsuario(v);
-            }
-        });
-        btnRedefinir.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) { redefinirSenha(v); }
-        });
+        btnEntrar.setOnClickListener(this::loginUsuario);
+        btnCadastrar.setOnClickListener(this::cadastroUsuario);
+        btnRedefinir.setOnClickListener(this::redefinirSenha);
 
     }
 
@@ -91,7 +78,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     public void loginUsuario(View v){
         if (!validarUsername() | !validarSenha()){
-            return;
         }else{
             isUser();
         }
@@ -112,6 +98,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 if(snapshot.exists()){
                     String senhaDB = snapshot.child(usuarioUsuario).child("senha").getValue(String.class);
 
+                    assert senhaDB != null;
                     if(senhaDB.equals(usuarioSenha)){
                         String nomeDB = snapshot.child(usuarioUsuario).child("nome").getValue(String.class);
                         String emailDB = snapshot.child(usuarioUsuario).child("email").getValue(String.class);

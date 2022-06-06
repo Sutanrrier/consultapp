@@ -1,10 +1,8 @@
 package com.example.apppreconsulta;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
+import android.annotation.SuppressLint;
+import android.app.Dialog;
 import android.content.Intent;
-import android.icu.util.Calendar;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -14,6 +12,9 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -35,6 +36,7 @@ public class ConfirmarConsulta extends AppCompatActivity {
     String calendar;
     String CPFs;
     String i;
+    Dialog popup;
 
 
     FirebaseDatabase rootNode;
@@ -50,6 +52,7 @@ public class ConfirmarConsulta extends AppCompatActivity {
         marker = findViewById(R.id.marker);
         medicos = findViewById(R.id.spnmedicos);
         calendario = findViewById(R.id.Calendario);
+        popup = new Dialog(this);
 
         Intent intent = getIntent();
         String user_tipo = intent.getStringExtra("tipo");
@@ -61,9 +64,8 @@ public class ConfirmarConsulta extends AppCompatActivity {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         medicos.setAdapter(adapter);
 
-        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-        String selectedDate = sdf.format(new Date(calendario.getDate()));
-        calendar = selectedDate;
+        @SuppressLint("SimpleDateFormat") SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+        calendar = sdf.format(new Date(calendario.getDate()));
 
         String local = getIntent().getStringExtra("local");
         marker.setText(local);
@@ -72,15 +74,33 @@ public class ConfirmarConsulta extends AppCompatActivity {
 
 
 
-        confirmarConsulta.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {isUser();}
-
-        });
+       confirmarConsulta.setOnClickListener(view -> isUser());
 
     }
 
-    /*public void confirmou(){
+    /*public void MostrarPopup(){
+        TextView popupLocal;
+        TextView popupMedico;
+        TextView popupData;
+        Button btnsim;
+        Button btnnao;
+        popup.setContentView(R.layout.popup);
+        popupLocal = findViewById(R.id.popuplocal);
+        popupMedico = findViewById(R.id.popupmedico);
+        popupData = findViewById(R.id.popupdata);
+        btnsim = findViewById(R.id.btnpopupsim);
+        btnnao = findViewById(R.id.btnpopupnao);
+
+        btnsim.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+            popup.show();
+            }
+
+    public void confirmou(){
 
        rootNode = FirebaseDatabase.getInstance();
         reference = rootNode.getReference("consulta");
@@ -108,9 +128,8 @@ public class ConfirmarConsulta extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if(snapshot.exists()){
-                    String CPFDB = snapshot.child(usuarioUsuario).child("usuario").getValue(String.class);
-                    String nomeDB = snapshot.child(usuarioUsuario).child("nome").getValue(String.class);
-                    String nomeb = nomeDB;
+                    snapshot.child(usuarioUsuario).child("usuario").getValue(String.class);
+                    String nomeb = snapshot.child(usuarioUsuario).child("nome").getValue(String.class);
                     rootNode = FirebaseDatabase.getInstance();
                     switch (i) {
                         case "urgencia": references = rootNode.getReference("consulta_urgencia");
@@ -126,12 +145,11 @@ public class ConfirmarConsulta extends AppCompatActivity {
                     }
 
                     String CPF = CPFs;
-                    String nome = nomeb;
                     String local = marker.getText().toString();
                     String medico = medicos.getSelectedItem().toString();
                     String data = calendar;
 
-                            DataBaseConsulta helperclass = new DataBaseConsulta(CPF, nome, local, medico, data);
+                            DataBaseConsulta helperclass = new DataBaseConsulta(CPF, nomeb, local, medico, data);
                     references.child(CPF).setValue(helperclass);
 
                     Intent intent = new Intent(getApplicationContext(), Consulta.class);

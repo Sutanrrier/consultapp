@@ -29,33 +29,17 @@ public class TelaEntrar extends AppCompatActivity {
 
         Intent intent = getIntent();
         String user_nome = intent.getStringExtra("nome");
-        String user_User = intent.getStringExtra("usuario");
-        CPF = user_User;
+        CPF = intent.getStringExtra("usuario");
         informacoesNome.setText(user_nome.split(" ")[0]);
 
         //Trigger do botão Consulta
-        consulta.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                consulta(v);
-            }
-        });
+        consulta.setOnClickListener(this::consulta);
 
         //Trigger do botão Remedios
-        remedios.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                remedios(v);
-            }
-        });
+        remedios.setOnClickListener(this::remedios);
 
         //Trigger do botão QrCode
-        qrcode.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                qrcode(v);
-            }
-        });
+        qrcode.setOnClickListener(this::qrcode);
     }
 
     //Tela de Marcar Consulta
