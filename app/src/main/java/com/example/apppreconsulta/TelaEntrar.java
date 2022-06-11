@@ -15,6 +15,7 @@ public class TelaEntrar extends AppCompatActivity {
     Button consulta;
     Button remedios;
     Button qrcode;
+    Button exames;
     String CPF;
 
     @Override
@@ -26,6 +27,7 @@ public class TelaEntrar extends AppCompatActivity {
         consulta = findViewById(R.id.btnConsulta);
         remedios = findViewById(R.id.btnRemedios);
         qrcode = findViewById(R.id.btnQRcode);
+        exames = findViewById(R.id.btnExames);
 
         Intent intent = getIntent();
         String user_nome = intent.getStringExtra("nome");
@@ -40,7 +42,21 @@ public class TelaEntrar extends AppCompatActivity {
 
         //Trigger do botão QrCode
         qrcode.setOnClickListener(this::qrcode);
+
+        exames.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                exames();
+            }
+        });
+
     }
+
+    private void exames() {
+        Intent intent = new Intent(this,TelaExames.class);
+        startActivity(intent);
+    }
+
 
     //Tela de Marcar Consulta
     public void consulta(View v){
