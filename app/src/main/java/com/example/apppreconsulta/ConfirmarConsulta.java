@@ -5,6 +5,7 @@ import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CalendarView;
@@ -26,7 +27,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class ConfirmarConsulta extends AppCompatActivity {
+public class ConfirmarConsulta extends AppCompatActivity implements ModalPopup.ExempleDialogListener {
 
     TextView marker;
     Button confirmarConsulta;
@@ -36,6 +37,8 @@ public class ConfirmarConsulta extends AppCompatActivity {
     String calendar;
     String CPFs;
     String i;
+    String a;
+    Integer b = 0;
     Dialog popup;
 
 
@@ -65,58 +68,82 @@ public class ConfirmarConsulta extends AppCompatActivity {
         medicos.setAdapter(adapter);
 
         @SuppressLint("SimpleDateFormat") SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-        calendar = sdf.format(new Date(calendario.getDate()));
+        //calendar = sdf.format(new Date(calendario.getDate()));
+        calendario.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
+            @Override
+            public void onSelectedDayChange(@NonNull CalendarView calendarView, int i, int i1, int i2) {
+                String data = i2 + "/" + (i1+1) + "/" +i;
+                calendar = data;
+            }
+        });
+        Date minDate = new Date();
+        calendario.setMinDate(minDate.getTime());
 
         String local = getIntent().getStringExtra("local");
         marker.setText(local);
 
 
-
-
-
-       confirmarConsulta.setOnClickListener(view -> isUser());
+        confirmarConsulta.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Estamarcado();
+            }
+        });
 
     }
 
-    /*public void MostrarPopup(){
-        TextView popupLocal;
-        TextView popupMedico;
-        TextView popupData;
-        Button btnsim;
-        Button btnnao;
-        popup.setContentView(R.layout.popup);
-        popupLocal = findViewById(R.id.popuplocal);
-        popupMedico = findViewById(R.id.popupmedico);
-        popupData = findViewById(R.id.popupdata);
-        btnsim = findViewById(R.id.btnpopupsim);
-        btnnao = findViewById(R.id.btnpopupnao);
+    public void Estamarcado(){
+        final String usuarioUsuario = CPFs;
+        switch(i){
+            case "urgencia": a = "consulta_urgencia";
+            break;
+            case "maternidade": a = "consulta_maternidade";
+            break;
+            case "clinica": a = "consulta_clinica";
+            break;
+            case "dentista": a = "consulta_odontologia";
+            break;
+            case "CAPS": a = "consulta_CAPS";
+            break;
+        }
 
-        btnsim.setOnClickListener(new View.OnClickListener() {
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference(a);
+
+        Query checkConsulta = reference.orderByChild("cpf").equalTo(usuarioUsuario);
+        checkConsulta.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
-            public void onClick(View view) {
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if(b == 1){
+                    isUser();
+                }else if(snapshot.exists()){
+                    String medicoDB = snapshot.child(usuarioUsuario).child("medico").getValue(String.class);
+                    String localDB = snapshot.child(usuarioUsuario).child("local").getValue(String.class);
+                    String dataDB = snapshot.child(usuarioUsuario).child("nome").getValue(String.class);
+
+                    Intent intent = new Intent(getApplicationContext(),ModalPopup.class);
+                    intent.putExtra("local", localDB);
+                    intent.putExtra("medico", medicoDB);
+                    intent.putExtra("data", dataDB);
+                    MostrarModal();
+                }else{
+                    isUser();
+                }
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
 
             }
         });
-            popup.show();
-            }
-
-    public void confirmou(){
-
-       rootNode = FirebaseDatabase.getInstance();
-        reference = rootNode.getReference("consulta");
+    }
 
 
-        String CPF = confirmarCPF.getText().toString();
-        String nome =
 
-        DataBaseConsulta helperclass = new DataBaseConsulta(CPF, nome, local, medico, data);
-        reference.child(CPF).setValue(helperclass);
-
-        Intent intent = new Intent(this, Consulta.class);
-        startActivity(intent);
-        Toast.makeText(ConfirmarConsulta.this, "Consulta Marcada", Toast.LENGTH_SHORT).show();
-        finish();
-    }*/
+    public void MostrarModal(){
+        ModalPopup modalPopup = new ModalPopup();
+        modalPopup.show(getSupportFragmentManager(),"Fragment");
+    }
 
     private void isUser(){
         final String usuarioUsuario = CPFs;
@@ -171,4 +198,8 @@ public class ConfirmarConsulta extends AppCompatActivity {
         });
     }
 
+    @Override
+    public void applyTexts(Integer liberacao) {
+        b = liberacao;
+    }
 }
