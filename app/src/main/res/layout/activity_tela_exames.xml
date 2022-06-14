@@ -6,20 +6,62 @@
     android:layout_height="match_parent"
     tools:context=".TelaExames"
     android:orientation="vertical">
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:src="@drawable/ic_logo_exames"
+        android:layout_marginLeft="32dp"
+        android:layout_marginRight="32dp"
+        android:layout_marginTop="18dp"
+        android:layout_marginBottom="18dp"
+        android:contentDescription="Logo" />
 
     <TextView
+        android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Seus Exames"
-        android:textSize="30sp"
-        android:padding="15sp" />
-    <Button
+        android:text="SEUS EXAMES"
+        android:textAlignment="center"
+        android:textSize="36sp"
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="24dp"
+        android:gravity="center_horizontal" />
+
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="10sp"
-        android:text="Exame.pdf"
-        android:id="@+id/btnpdf"/>
+        android:orientation="vertical"
+        android:padding="12dp">
+
+        <Button
+            android:id="@+id/btnpdf"
+            android:text="exame1.pdf"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:padding="16dp"
+            android:layout_marginBottom="24dp"/>
+
+        <Button
+            android:id="@+id/btn2pdf"
+            android:text="exame2.pdf"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:padding="16dp"
+            android:layout_marginBottom="24dp"/>
+
+        <Button
+            android:id="@+id/btn3pdf"
+            android:text="exame3.pdf"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:padding="16dp"
+            android:layout_marginBottom="24dp"/>
 
 
+    </LinearLayout>
 
 </LinearLayout>
